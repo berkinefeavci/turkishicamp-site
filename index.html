@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TURK-ISHI CAMP · İstanbul dans kampı</title>
+<meta name="description" content="TURK-ISHI CAMP, Türkiye'nin farklı şehir, okul ve türlerinden dansçıları iki yoğun günde bir araya getiren bağımsız bir dans kampıdır.">
+<meta property="og:title" content="TURK-ISHI CAMP">
+<meta property="og:description" content="İstanbul'da iki günlük bağımsız dans kampı: atölyeler, topluluk ve birlikte eğlenme.">
+<meta property="og:url" content="https://turkishicamp.com/">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e0f10'/%3E%3Cpath d='M16 18h32v8H36v22h-8V26H16z' fill='%23f4f4f2'/%3E%3Ccircle cx='48' cy='46' r='4' fill='%23e5372b'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0f10;
+    --surface: #17191a;
+    --text: #f4f4f2;
+    --muted: #9a9d9f;
+    --line: rgba(255, 255, 255, 0.12);
+    --accent: #e5372b;
+    --teal: #6fc2b4;
+    --gutter: 24px;
+    --max: 1200px;
+    --display: "Archivo", "Arial Black", sans-serif;
+    --body: "Inter", system-ui, -apple-system, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font: 400 17px/1.6 var(--body);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+
+  /* Header */
+  header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(14, 15, 16, 0.86);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .bar { height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .logo {
+    font: 800 18px/1 var(--display); font-stretch: 125%;
+    letter-spacing: -0.01em; text-decoration: none; white-space: nowrap;
+  }
+  .logo span { color: var(--accent); }
+  nav { display: flex; align-items: center; gap: 28px; font-size: 15px; }
+  nav a { text-decoration: none; color: var(--muted); transition: color .2s; }
+  nav a:hover { color: var(--text); }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    height: 40px; padding: 0 18px; border-radius: 999px;
+    border: 1px solid var(--text); color: var(--text) !important;
+    font: 600 14px/1 var(--body); text-decoration: none;
+    transition: background .2s, color .2s;
+  }
+  .btn:hover { background: var(--text); color: var(--bg) !important; }
+  .btn.solid { background: var(--accent); border-color: var(--accent); }
+  .btn.solid:hover { background: var(--text); border-color: var(--text); }
+
+  /* Hero */
+  .hero {
+    position: relative; overflow: hidden;
+    margin: 0 auto; max-width: 1440px;
+    min-height: min(88vh, 820px);
+    display: flex; align-items: flex-end;
+    background:
+      radial-gradient(60% 70% at 72% 28%, rgba(111, 194, 180, 0.55), transparent 70%),
+      radial-gradient(40% 50% at 20% 90%, rgba(229, 55, 43, 0.18), transparent 70%),
+      #0b1314;
+    border-bottom-left-radius: clamp(80px, 16vw, 260px);
+  }
+  .hero-inner { width: 100%; padding-top: 96px; padding-bottom: 64px; }
+  .eyebrow {
+    font: 600 13px/1 var(--body); letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .hero h1 {
+    margin-top: 20px;
+    font: 900 clamp(56px, 12.5vw, 188px)/0.86 var(--display); font-stretch: 125%;
+    letter-spacing: -0.03em;
+  }
+  .hero h1 .nw { white-space: nowrap; }
+  .hero-foot {
+    margin-top: 40px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: end;
+  }
+  .lead { max-width: 520px; font-size: 19px; line-height: 1.55; color: #d9dcdb; }
+  .actions { display: flex; gap: 12px; justify-content: flex-end; flex-wrap: wrap; }
+
+  /* Stats */
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--line); }
+  .stat { padding: 40px 0; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: 0; }
+  .stat:not(:first-child) { padding-left: 32px; }
+  .stat b { display: block; font: 800 clamp(40px, 6vw, 72px)/1 var(--display); font-stretch: 112%; }
+  .stat span { display: block; margin-top: 8px; color: var(--muted); font-size: 15px; }
+
+  /* Sections */
+  section.block { padding: 112px 0; border-bottom: 1px solid var(--line); }
+  .label {
+    font: 600 13px/1 var(--body); letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  h2 {
+    margin-top: 16px;
+    font: 800 clamp(34px, 5vw, 60px)/1.02 var(--display); font-stretch: 112%;
+    letter-spacing: -0.02em;
+  }
+  .split { display: grid; grid-template-columns: 5fr 7fr; gap: 64px; }
+  .prose p + p { margin-top: 18px; }
+  .prose p { color: #cfd2d1; }
+  .prose .en { font-size: 15px; color: var(--muted); padding-top: 18px; border-top: 1px solid var(--line); }
+
+  .cards { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .card {
+    min-height: 260px; padding: 28px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 20px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .card .num { font: 700 14px/1 var(--display); color: var(--accent); }
+  .card h3 { font: 800 26px/1.1 var(--display); font-stretch: 112%; }
+  .card p { margin-top: 12px; color: var(--muted); font-size: 16px; }
+
+  /* FAQ */
+  .faq { margin-top: 48px; border-top: 1px solid var(--line); }
+  .faq details { border-bottom: 1px solid var(--line); }
+  .faq summary {
+    list-style: none; cursor: pointer;
+    display: grid; grid-template-columns: 48px 1fr 24px; align-items: center; gap: 16px;
+    padding: 26px 0;
+    font: 700 clamp(17px, 2vw, 21px)/1.3 var(--display); font-stretch: 108%; text-transform: uppercase;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary .n { font: 500 14px/1 var(--body); color: var(--muted); }
+  .faq summary .plus { position: relative; width: 24px; height: 24px; }
+  .faq summary .plus::before, .faq summary .plus::after {
+    content: ""; position: absolute; left: 4px; right: 4px; top: 11px; height: 2px; background: var(--text);
+    transition: transform .25s;
+  }
+  .faq summary .plus::after { transform: rotate(90deg); }
+  .faq details[open] .plus::after { transform: rotate(0deg); }
+  .faq details[open] summary { color: var(--text); }
+  .faq .a { padding: 0 40px 28px 64px; color: #cfd2d1; max-width: 860px; }
+
+  /* Contact */
+  .contact { padding: 128px 0; text-align: center; }
+  .contact h2 { font-size: clamp(44px, 9vw, 128px); font-stretch: 125%; text-transform: uppercase; line-height: .9; }
+  .contact .mail {
+    display: inline-block; margin-top: 40px;
+    font: 700 clamp(20px, 3vw, 32px)/1.2 var(--display); font-stretch: 108%;
+    text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 6px;
+  }
+  .contact .mail:hover { color: var(--accent); }
+  .contact p { margin-top: 20px; color: var(--muted); }
+
+  footer { border-top: 1px solid var(--line); }
+  footer .wrap { height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 14px; color: var(--muted); }
+
+  @media (max-width: 860px) {
+    nav a:not(.btn) { display: none; }
+    .hero-foot, .split { grid-template-columns: 1fr; gap: 28px; }
+    .actions { justify-content: flex-start; }
+    .cards { grid-template-columns: 1fr; }
+    .card { min-height: 200px; }
+    section.block { padding: 80px 0; }
+  }
+  @media (max-width: 560px) {
+    :root { --gutter: 16px; }
+    .hero h1 { font-size: 11vw; }
+    .stats { grid-template-columns: 1fr; }
+    .stat { border-right: 0; border-bottom: 1px solid var(--line); padding: 28px 0 !important; }
+    .stat:last-child { border-bottom: 0; }
+    .faq summary { grid-template-columns: 32px 1fr 24px; gap: 12px; }
+    .faq .a { padding: 0 0 24px 44px; }
+    footer .wrap { flex-direction: column; justify-content: center; height: auto; padding-top: 24px; padding-bottom: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top">TURK-ISHI CAMP<span>.</span></a>
+    <nav>
+      <a href="#hakkinda">Hakkında</a>
+      <a href="#neler-var">Neler var</a>
+      <a href="#sss">SSS</a>
+      <a class="btn" href="#iletisim">İletişim</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap hero-inner">
+      <p class="eyebrow">İstanbul · Bağımsız dans kampı</p>
+      <h1><span class="nw">TURK-ISHI</span><br>CAMP</h1>
+      <div class="hero-foot">
+        <p class="lead">Türkiye'nin farklı şehir, okul ve türlerinden dansçıları iki yoğun günde bir araya getiriyoruz. Öğrenmek, üretmek ve birlikte eğlenmek için.</p>
+        <div class="actions">
+          <a class="btn solid" href="mailto:hello@turkishicamp.com">Bize yazın</a>
+          <a class="btn" href="#hakkinda">Daha fazlası</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><b>2</b><span>gün</span></div>
+      <div class="stat"><b>10</b><span>eğitmen</span></div>
+      <div class="stat"><b>12</b><span>ders</span></div>
+    </div>
+  </div>
+
+  <section class="block" id="hakkinda">
+    <div class="wrap split">
+      <div>
+        <p class="label">Hakkında</p>
+        <h2>Dansı hayatına koyanlar için.</h2>
+      </div>
+      <div class="prose">
+        <p>TURK-ISHI CAMP, iki gün boyunca 10 eğitmen ve 12 dersten oluşan yoğun bir dans kampıdır. Türkiye'de farklı şehir, okul ve türlerden dansçıları bir araya getirerek öğrenme, üretme ve birlikte eğlenme alanı açan bağımsız bir oluşumdur.</p>
+        <p>Amacımız, dansı hayatında gerçekten bir yere koyan insanlara hem teknik ve artistik gelişim hem de güvenli, kapsayıcı ve ilham veren bir topluluk deneyimi sunmak. Her yıl tekrarlanan bir “öğrenme + eğlenme” alanıyla Türkiye'deki dans ekosistemini güçlendirmek istiyoruz.</p>
+        <p class="en">TURK-ISHI CAMP is an independent two-day dance intensive based in Istanbul, Türkiye. It brings dancers from different cities, schools and styles together for workshops with leading instructors, community and fun.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="neler-var">
+    <div class="wrap">
+      <p class="label">Neler var</p>
+      <h2>İki gün, tek sahne.</h2>
+      <div class="cards">
+        <div class="card">
+          <span class="num">01</span>
+          <div><h3>Atölyeler</h3><p>Farklı türlerden eğitmenlerle yoğun dersler. Teknik ve artistik gelişim bir arada.</p></div>
+        </div>
+        <div class="card">
+          <span class="num">02</span>
+          <div><h3>Topluluk</h3><p>Farklı şehir ve okullardan dansçılarla tanışma, birlikte üretme ve networking.</p></div>
+        </div>
+        <div class="card">
+          <span class="num">03</span>
+          <div><h3>Eğlence</h3><p>Öğrenmenin yanında birlikte dans etmek ve unutulmaz iki gün geçirmek.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="sss">
+    <div class="wrap">
+      <p class="label">SSS</p>
+      <h2>Sıkça sorulan sorular</h2>
+      <div class="faq">
+        <details open>
+          <summary><span class="n">01</span>TURK-ISHI CAMP nedir?<span class="plus"></span></summary>
+          <p class="a">İki gün süren, 10 eğitmen ve 12 dersten oluşan yoğun bir dans kampı. Farklı şehir, okul ve türlerden dansçıları bir araya getiren bağımsız bir oluşum.</p>
+        </details>
+        <details>
+          <summary><span class="n">02</span>Kimler katılabilir?<span class="plus"></span></summary>
+          <p class="a">Dansı hayatında bir yere koyan herkes. Farklı tür ve seviyelerden dansçılara açığız.</p>
+        </details>
+        <details>
+          <summary><span class="n">03</span>Bir sonraki kamp ne zaman?<span class="plus"></span></summary>
+          <p class="a">Tarihler ve bilet bilgisi netleştiğinde duyurulur. Haber almak için hello@turkishicamp.com adresine yazabilirsiniz.</p>
+        </details>
+        <details>
+          <summary><span class="n">04</span>Sponsor ya da eğitmen olarak nasıl yer alabilirim?<span class="plus"></span></summary>
+          <p class="a">İş birliği teklifleriniz için bize e-posta gönderin, kısa sürede dönüş yapalım.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="iletisim">
+    <div class="wrap">
+      <p class="label">İletişim</p>
+      <h2>Eğlenmeye<br>hazır mısın?</h2>
+      <a class="mail" href="mailto:hello@turkishicamp.com">hello@turkishicamp.com</a>
+      <p>İstanbul, Türkiye</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 TURK-ISHI CAMP</span>
+    <span>İstanbul · Türkiye</span>
+  </div>
+</footer>
+
+</body>
+</html>
